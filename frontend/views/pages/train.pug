@@ -1,0 +1,74 @@
+extends ../layout.pug
+
+block prepend styles
+  link(rel='stylesheet' href='//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css')
+
+block content
+  form(id='train-update_el-form' name='train-update_el-form train-update_el-form_hidden' class='train-update_el-form' action='')
+    div(class='update_el_wrap')
+      div(class="update_el_wrap_inside")
+
+        button(class='btn_close btn-secondary' id='btn_close') X
+
+        div(class='update_el_wrap_content')
+          div(class='form-group')
+            div(class='col-md-3')
+              label(for='name') Name
+            div(class='col-md-9')
+              input(id='name' name='name' value='' class='form-control')
+
+          div(class='form-group')
+            div(class='col-md-3')
+              label(for='name') Destination
+            div(class='col-md-9')
+              input(id='destination' name='destination' value='' class='form-control')  
+
+          div(class='form-group')
+            div(class='col-md-3')
+              label(for='name') Number
+            div(class='col-md-9')
+              input(id='number' name='number' value='' class='form-control')  
+
+          div(class='form-group')
+            div(class='col-md-12')
+              button(type='submit' class='btn btn-primary') Update
+
+
+
+
+
+
+  div(class='breadcrumb')
+    li= title
+  form(id='train-add-form' name='train-add-form' class='form-inline' action='')
+    div(class='form-group')
+      div(class='col-md-3')
+        label(for='name') Name
+      div(class='col-md-9')
+        input(id='name' name='name' value='' class='form-control' required='required')
+    div(class='form-group')
+      div(class='col-md-4')
+        label(for='destination') Destination
+      div(class='col-md-5')
+        select(id='destination' name='destination' value='' class='form-control' required='required')
+          option(value='') Select destination
+          option(value='Lviv') Lviv
+          option(value='Kiyv') Kiyv
+          option(value='Dniro') Dniro
+          option(value='Charkiv') Charkiv
+          option(value='Luck') Luck
+    div(class='form-group')
+      div(class='col-md-3')
+        label(for='number') Number
+      div(class='col-md-9')
+        input(id='number' name='number' type='number' value='' class='form-control' required='required')
+    div(class='form-group')
+      div(class='col-md-12')
+        button(type='submit' class='btn btn-primary') Create
+    div.list-wrapper
+      table(id='train-list')
+
+block append scripts
+  script(src='/static/js/models/train.js')
+  script(src='//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js')
+  script(src='/static/js/views/train.js')
